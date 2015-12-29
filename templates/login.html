@@ -1,0 +1,12 @@
+<link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
+{% extends "template.html" %}
+{% block content %}
+  <h3>Please login to access app.</h3>
+    <form action="" method="post">
+        Username: <input type="text" name="username" value="{{
+        request.form.username }}">
+        Password: <input type="password" name="password" value="{{
+        request.form.password }}">
+      <p><input type="submit" value="Login"></p>
+    </form>
+{% endblock %}
