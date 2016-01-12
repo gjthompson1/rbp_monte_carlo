@@ -16,17 +16,20 @@ exampleApp.controller('input_test', ['$scope', '$log', '$http', function($scope,
       pd:"0.1",
       shape:'2'
     };
-    $scope.returnVal = 100;
-    $scope.rate_cash = 10;
-    $scope.RAR = 10;
-    $scope.LGD = 10;
+
+    $scope.outputs = {
+      rate_cash:'100',
+      RAR:'10',
+      LGD:'10',
+    };
 
     $scope.testFunc = function() {
         $log.log("input_test");
         $http.post('/calc', $scope.inputs)
   	    .then(function(response) {
     	    //  debugger;
-           $scope.returnVal = angular.copy(response.data.mult_val);
+          console.log(response.data)
+           $scope.outputs = angular.copy(response.data);
   	    }, function(response) {
     	        // debugger;
   	    });
