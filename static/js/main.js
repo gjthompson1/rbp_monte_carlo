@@ -6,16 +6,20 @@ var exampleApp = angular.module('exampleApp',[]);
 //     .otherwise({redirectTo: '/'});
 // });
 
-exampleApp.controller('FormController1',function($scope){
-        $scope.buttonClicked = function(){
-            $scope.modText = $scope.inputText;
-        };
-    });
-
 exampleApp.controller('input_test', ['$scope', '$log', '$http', function($scope, $log, $http) {
 
-    $scope.inputs  = {term: "36"};
+    $scope.inputs  = {
+      term: "36",
+      loan_amount:"100000",
+      int_rate:"10",
+      num_loans:"1000",
+      pd:"0.1",
+      shape:'2'
+    };
     $scope.returnVal = 100;
+    $scope.rate_cash = 10;
+    $scope.RAR = 10;
+    $scope.LGD = 10;
 
     $scope.testFunc = function() {
         $log.log("input_test");
@@ -30,10 +34,3 @@ exampleApp.controller('input_test', ['$scope', '$log', '$http', function($scope,
 }
 
 ]);
-
-// exampleApp.calculateRiskPricing: function($scope.inputs) {
-//     var payload = {
-//         inputs: inputs
-//     };
-//     return httpService.call('/app_temp', payload);
-// },

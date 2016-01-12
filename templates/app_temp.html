@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="exampleApp">
   <head>
-    <title>Flask App</title>
+    <title>RBP: Monte Carlo</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="static/css/starter-template.css" rel="stylesheet">
+    <script>
+    // Without JQuery
+    var slider = new Slider("#ex6");
+    slider.on("slide", function(slideEvt) {
+    	$("#ex6SliderVal").text(slideEvt.value);
+    });)
+    </script>
+
   </head>
 
   <body ng-controller ="input_test">
@@ -23,8 +31,28 @@
                   <table class="table table-striped">
                       <tbody>
                           <tr>
-                              <td> Term </td>
+                              <td> Loan Amount </td>
                               <td><input ng-change="testFunc()" type="text" ng-model="inputs.term" /></td>
+                          </tr>
+                          <tr>
+                              <td> Term </td>
+                              <td><input ng-change="testFunc()" type="text" ng-model="inputs.loan_amount" /></td>
+                          </tr>
+                          <tr>
+                              <td> Interest Rate </td>
+                              <td><input ng-change="testFunc()" type="text" ng-model="inputs.int_rate" /></td>
+                          </tr>
+                          <tr>
+                              <td> Number of Loans </td>
+                              <td><input ng-change="testFunc()" type="text" ng-model="inputs.num_loans" /></td>
+                          </tr>
+                          <tr>
+                              <td> Probability of default </td>
+                              <td><input ng-change="testFunc()" type="text" ng-model="inputs.pd" /></td>
+                          </tr>
+                          <tr>
+                              <td> Default distribution shape </td>
+                              <td><input ng-change="testFunc()" type="text" ng-model="inputs.shape" /></td>
                           </tr>
                       </tbody>
                   </table>
@@ -41,23 +69,17 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Term</th>
-                            <th>12mo</th>
-                            <th>24mo</th>
-                            <th>36mo</th>
-                            <th>48mo</th>
-                            <th>60mo</th>
+                            <th>Rate</th>
+                            <th>RAR</th>
+                            <th>LGD</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td> {{inputs.term}} </td>
-                            <td> {{ returnVal }} </td>
-                            <td> EMPTY% </td>
-                            <td> EMPTY% </std>
-                            <td> EMPTY% </td>
-                            <td> EMPTY% </td>
+                            <td> {{returnVal}} </td>
+                            <td> {{ RAR }} </td>
+                            <td> {{ LGD }} </td>
                         </tr>
                     </tbody>
                 </table>
