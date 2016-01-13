@@ -9,6 +9,7 @@ import finance as fin
 import numpy as np
 import random
 import ast
+import pygal
 import matplotlib.pyplot as plt
 
 app = Flask(__name__)
@@ -45,6 +46,7 @@ def login():
 @login_required
 def main():
     return render_template('app_temp.html')
+
 
 @app.route('/calc', methods=['POST'])
 @login_required

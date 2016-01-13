@@ -6,6 +6,13 @@
     <link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="static/css/starter-template.css" rel="stylesheet">
   </head>
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+  extensions: ["MathMenu.js", "MathZoom.js"]
+});
+</script>
 
   <body ng-controller ="input_test">
 
@@ -14,10 +21,10 @@
         <div class="row">
         {% raw %}
 
-        <div class="col-md-3">
+        <div class="col-md-5">
           <div class="panel panel-default">
             <div class="panel-heading">
-                <h4>Details</h4>
+                <h4>Inputs</h4>
             </div>
             <div class="panel-body">
                   <table class="table table-striped">
@@ -46,13 +53,17 @@
                               <td> Default distribution shape </td>
                               <td><input ng-change="testFunc()" type="text" ng-model="inputs.shape" /></td>
                           </tr>
+                          <tr>
+                              <td> Loss Given Default </td>
+                              <td> {{ outputs.LGD }} </td>
+                          </tr>
                       </tbody>
                   </table>
             </div>
           </div>
         </div>
 
-    <div class="col-sm-9">
+    <div class="col-sm-7">
         <div class="panel panel-default">
             <div class="panel-heading">
             <h4>Results</h4>
@@ -63,18 +74,24 @@
                         <tr>
                             <th>Rate</th>
                             <th>RAR</th>
-                            <th>LGD</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td> {{ outputs.rate_cash }} </td>
                             <td> {{ outputs.RAR }} </td>
-                            <td> {{ outputs.LGD }} </td>
                         </tr>
                     </tbody>
                 </table>
+                <p>Validation of the following risk based pricing forumula</p>
+                <p>
+                <script type="math/tex; mode=display">\begin{equation*}
+                 \begin{pmatrix}
+                  1 & 0\\
+                  0 & 1
+                 \end{pmatrix}
+                \end{equation*}</script>
+                </p>
             </div>
         </div>
     </div>
@@ -83,10 +100,10 @@
       </div>
     </div>
 
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
