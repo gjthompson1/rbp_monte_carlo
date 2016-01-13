@@ -9,3 +9,7 @@ body {
 td {
     text-align: left;
 }
+
+.sliderdemoBasicUsage input[type="number"] {
+  text-align: center;
+  padding-left: 10px; }
